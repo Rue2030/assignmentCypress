@@ -1,0 +1,20 @@
+{
+  "name": "cypresstest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -R -f cypress/reports; mkdir cypress/reports; rm -f mochawesome.json",
+    "run": "npx cypress run",
+    "test": "npm-run-all clean run report -c",
+    "test:spec": "npm-run-all clean \"run -- --spec {1}\" report -c --",
+    "report": "npx mochawesome-merge cypress/reports/*.json > mochawesome.json && npx margemochawesome.json && open mochawesome-report/mochawesome.html && rm -f mochawesome.json"
+  },
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.0.1"
+  }
+}
